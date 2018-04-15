@@ -8,22 +8,22 @@ public class Search {
         int curr_y = parent.emptyY;
 
         if (curr_y + 1 < 4) {
-            Node rightMove = new Node(parent, parent.puzzleBoard, curr_x, curr_y, curr_x,  curr_y + 1);
+            Node rightMove = new Node(parent, parent.puzzle_board, curr_x, curr_y, curr_x,  curr_y + 1);
             possibleMovements.add(rightMove);
         }
 
         if (curr_x - 1 > -1 ) {
-            Node downMove = new Node(parent, parent.puzzleBoard, curr_x, curr_y, curr_x - 1, curr_y);
+            Node downMove = new Node(parent, parent.puzzle_board, curr_x, curr_y, curr_x - 1, curr_y);
             possibleMovements.add(downMove);
         }
 
         if (curr_y - 1 > -1) {
-            Node leftMove = new Node(parent, parent.puzzleBoard, curr_x, curr_y, curr_x, curr_y - 1);
+            Node leftMove = new Node(parent, parent.puzzle_board, curr_x, curr_y, curr_x, curr_y - 1);
             possibleMovements.add(leftMove);
         }
 
         if (curr_x + 1 < 4) {
-            Node upMove = new Node(parent, parent.puzzleBoard, curr_x, curr_y,curr_x + 1, curr_y);
+            Node upMove = new Node(parent, parent.puzzle_board, curr_x, curr_y,curr_x + 1, curr_y);
             possibleMovements.add(upMove);
         }
 
