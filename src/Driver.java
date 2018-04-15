@@ -8,24 +8,24 @@ public class Driver {
         Node goal = create_source_node(goal_state.split(" "));
         goal.printBoard();
 
-//        Scanner scan = new Scanner(System.in);
-//        System.out.print("Input the args: ");
-//
-//        String input_str = scan.nextLine();
-//        input_str = input_str.replaceAll("[\"]", "");
-//
-//
-//        String[] arguments = input_str.split(" ");
-//        Node source = create_source_node(arguments);
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Input the args: ");
 
-        HashMap<Character, int[]> hashMap = convert(goal);
+        String input_str = scan.nextLine();
+        input_str = input_str.replaceAll("[\"]", "");
 
-        String one = "123456789 ABCDEF";
-        Node one_goal = create_source_node(one.split(" "));
-        one_goal.printBoard();
-        one_goal.heuristic = one_goal.heuristic_two(goal, hashMap);
 
-        System.out.println(one_goal.heuristic);
+        String[] arguments = input_str.split(" ");
+        Node source = create_source_node(arguments);
+
+
+
+//        String one = "123456789A BCDEF";
+//        Node one_goal = create_source_node(one.split(" "));
+//        one_goal.printBoard();
+//        one_goal.heuristic = one_goal.heuristic_two(goal, hashMap);
+
+        //System.out.println(one_goal.heuristic);
 //
 //        String two = "123456789 ABCDEF";
 //        Node two_goal = create_source_node(two.split(" "));
@@ -56,17 +56,17 @@ public class Driver {
 
 
 
-//        if(arguments[2].equals("BFS")) {
-//            BFSearch bfs =  new BFSearch(source, goal);
-//        }
-//
-//        if(arguments[2].equals("DFS")) {
-//            DFSearch dfs =  new DFSearch(source, goal);
-//        }
-//
-//        if(arguments[2].equals("GBFS")) {
-//            GBFSearch gbfs =  new GBFSearch(source, goal, arguments[3]);
-//        }
+        if(arguments[2].equals("BFS")) {
+            BFSearch bfs =  new BFSearch(source, goal);
+        }
+
+        if(arguments[2].equals("DFS")) {
+            DFSearch dfs =  new DFSearch(source, goal);
+        }
+
+        if(arguments[2].equals("GBFS")) {
+            GBFSearch gbfs =  new GBFSearch(source, goal, arguments[3]);
+        }
 
 
     }
@@ -98,20 +98,6 @@ public class Driver {
         }
 
         return new Node(null, board, emptyX, emptyY, emptyX, emptyY);
-    }
-
-
-    public static HashMap<Character, int[]> convert(Node goal) {
-        char[][] puzzle_board = goal.puzzle_board;
-        HashMap<Character, int[]> hashMap = new HashMap<>();
-
-        for(int i = 0; i < puzzle_board.length; i++) {
-            for(int j = 0; j < puzzle_board[i].length; j++) {
-                hashMap.put(puzzle_board[i][j], new int[]{i, j});
-            }
-        }
-
-        return hashMap;
     }
 }
 

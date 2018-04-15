@@ -9,21 +9,25 @@ public class Search {
 
         if (curr_y + 1 < 4) {
             Node rightMove = new Node(parent, parent.puzzle_board, curr_x, curr_y, curr_x,  curr_y + 1);
+            rightMove.cost_to_reach_this_node = parent.cost_to_reach_this_node + 1;
             possibleMovements.add(rightMove);
         }
 
         if (curr_x - 1 > -1 ) {
             Node downMove = new Node(parent, parent.puzzle_board, curr_x, curr_y, curr_x - 1, curr_y);
+            downMove.cost_to_reach_this_node = parent.cost_to_reach_this_node + 1;
             possibleMovements.add(downMove);
         }
 
         if (curr_y - 1 > -1) {
             Node leftMove = new Node(parent, parent.puzzle_board, curr_x, curr_y, curr_x, curr_y - 1);
+            leftMove.cost_to_reach_this_node = parent.cost_to_reach_this_node + 1;
             possibleMovements.add(leftMove);
         }
 
         if (curr_x + 1 < 4) {
             Node upMove = new Node(parent, parent.puzzle_board, curr_x, curr_y,curr_x + 1, curr_y);
+            upMove.cost_to_reach_this_node = parent.cost_to_reach_this_node + 1;
             possibleMovements.add(upMove);
         }
 

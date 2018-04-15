@@ -1,12 +1,14 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.PriorityQueue;
 
-public class GBFSearch extends Search {
-
-    public GBFSearch(Node source, Node goal, String heuristicType) {
-        search_GBFS(source, goal, heuristicType);
+public class AStarSearch extends Search {
+    public AStarSearch(Node source, Node goal, String heuristicType) {
+        search_AStar(source, goal, heuristicType);
     }
 
-    public void search_GBFS(Node source, Node goal, String heuristic_type) {
+    public void search_AStar(Node source, Node goal, String heuristic_type) {
 
         HashMap<Character, int[]> goal_hashmap = array_to_hasmap(goal);
 
@@ -32,9 +34,9 @@ public class GBFSearch extends Search {
 
                 for(Node n: possibleMoves) {
                     if(heuristic_type.equals("h1"))
-                        n.total_cost = n.heuristic_one(goal);
+                        n.total_cost = n.heuristic_one(goal) + n.cost_to_reach_this_node ;
                     if(heuristic_type.equals("h2"))
-                        n.total_cost = n.heuristic_two(goal, goal_hashmap);
+                        n.total_cost = n.heuristic_two(goal, goal_hashmap) + n.cost_to_reach_this_node;
                     open.add(n);
                 }
 

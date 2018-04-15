@@ -10,7 +10,9 @@ public class Node {
     public int emptyX;
     public int emptyY;
 
-    public int heuristic;
+    public int total_cost;
+
+    public int cost_to_reach_this_node = 0;
 
 
     public Node(Node parent, char[][] puzzle_board, int emptyX, int emptyY, int swapX, int swapY) {
