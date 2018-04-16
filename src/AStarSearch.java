@@ -4,49 +4,46 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class AStarSearch extends Search {
-    public AStarSearch(Node source, Node goal, String heuristicType) {
-        search_AStar(source, goal, heuristicType);
+
+
+
+    public AStarSearch(Node source, Node goal, String heuristic) {
+        search_AStar(source, goal, heuristic);
     }
 
-    public void search_AStar(Node source, Node goal, String heuristic_type) {
-
-        HashMap<Character, int[]> goal_hashmap = array_to_hasmap(goal);
+    public void search_AStar(Node source, Node goal, String heuristic) {
 
         Node destination = null;
-
         ArrayList<Node> closed = new ArrayList<>();
+
+        HashMap<Character, int[]> tile_value_map = board_conversion_map(goal);
 
         PriorityQueue<Node> open = new PriorityQueue<>(10, new PComparator());
         open.add(source);
 
-        while (!open.isEmpty()) {
-            Node low_heu_node = open.poll();
+        int num_created = 1, num_expanded = 0, fringe_size = 0;
 
-            if (check_closed(low_heu_node, closed) == false) {
-                if (low_heu_node.equals(goal)) {
-                    destination = low_heu_node;
-                    destination.printBoard();
-                    System.out.println("FOUND SOLUTION");
+        while (!open.isEmpty()) {
+            Node node_low_cost = open.poll();
+            if (check_closed(node_low_cost, closed) == false) {
+                if (node_low_cost.equals(goal)) {
+                    destination = node_low_cost;
+                    output_summary(destination, num_created, num_expanded, fringe_size);
                     return;
                 }
 
-                ArrayList<Node> possibleMoves = possible_moves(low_heu_node);
-
-                for(Node n: possibleMoves) {
-                    if(heuristic_type.equals("h1"))
-                        n.total_cost = n.heuristic_one(goal) + n.cost_to_reach_this_node ;
-                    if(heuristic_type.equals("h2"))
-                        n.total_cost = n.heuristic_two(goal, goal_hashmap) + n.cost_to_reach_this_node;
-                    open.add(n);
+                ArrayList<Node> successors = generate_successors(node_low_cost);
+                for(Node child: successors) {
+                    calc_cost(child, goal, heuristic, "AStar", tile_value_map);
+                    open.add(child);
                 }
 
-//                for(Node x: open) {
-//                    x.printBoard();
-//                    System.out.println(x.heuristic);
-//                }
+                num_created += successors.size();
+                num_expanded++;
+                fringe_size = Math.max(fringe_size, open.size());
             }
 
-            closed.add(low_heu_node);
+            closed.add(node_low_cost);
         }
 
         if (destination == null) print_summary(-1, -1, -1, -1);
@@ -60,18 +57,5 @@ public class AStarSearch extends Search {
             }
         }
         return false;
-    }
-
-    public static HashMap<Character, int[]> array_to_hasmap(Node goal) {
-        char[][] puzzle_board = goal.puzzle_board;
-        HashMap<Character, int[]> hashMap = new HashMap<>();
-
-        for(int i = 0; i < puzzle_board.length; i++) {
-            for(int j = 0; j < puzzle_board[i].length; j++) {
-                hashMap.put(puzzle_board[i][j], new int[]{i, j});
-            }
-        }
-
-        return hashMap;
     }
 }

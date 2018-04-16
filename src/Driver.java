@@ -6,7 +6,7 @@ public class Driver {
         // Goal state initialization
         String goal_state = "123456789ABCDEF  H";
         Node goal = create_source_node(goal_state.split(" "));
-        goal.printBoard();
+        goal.printSummary();
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Input the args: ");
@@ -14,47 +14,8 @@ public class Driver {
         String input_str = scan.nextLine();
         input_str = input_str.replaceAll("[\"]", "");
 
-
         String[] arguments = input_str.split(" ");
         Node source = create_source_node(arguments);
-
-
-
-//        String one = "123456789A BCDEF";
-//        Node one_goal = create_source_node(one.split(" "));
-//        one_goal.printBoard();
-//        one_goal.heuristic = one_goal.heuristic_two(goal, hashMap);
-
-        //System.out.println(one_goal.heuristic);
-//
-//        String two = "123456789 ABCDEF";
-//        Node two_goal = create_source_node(two.split(" "));
-//        two_goal.printBoard();
-//        two_goal.heuristic = two_goal.cal_heuristic(goal);
-//
-//        String three = "123456789ABCD EF";
-//        Node three_goal = create_source_node(three.split(" "));
-//        three_goal.printBoard();
-//        three_goal.heuristic = three_goal.cal_heuristic(goal);
-//
-//
-//        System.out.println("one_goal: " + one_goal.heuristic);
-//        System.out.println("two_goal: " + two_goal.heuristic);
-//        System.out.println("three_goal: " + three_goal.heuristic);
-//
-//
-//        PriorityQueue<Node> open = new PriorityQueue<>(10, new PComparator());
-//
-//        open.add(one_goal);
-//        open.add(three_goal);
-//        open.add(two_goal);
-//
-//
-//        open.poll().printBoard();
-//        open.poll().printBoard();
-//        open.poll().printBoard();
-
-
 
         if(arguments[2].equals("BFS")) {
             BFSearch bfs =  new BFSearch(source, goal);
@@ -68,6 +29,13 @@ public class Driver {
             GBFSearch gbfs =  new GBFSearch(source, goal, arguments[3]);
         }
 
+        if(arguments[2].equals("AStar")) {
+            AStarSearch astar =  new AStarSearch(source, goal, arguments[3]);
+        }
+
+        if(arguments[2].equals("DLS")) {
+            DLSearch dls =  new DLSearch(source, goal, Integer.parseInt(arguments[3]));
+        }
 
     }
 
@@ -85,9 +53,6 @@ public class Driver {
 
         emptyX = X;
         emptyY = Y % 4;
-
-        //System.out.println(Y);
-        //System.out.println(emptyX + " " +  emptyY);
 
         Y += 1;
         if(Y % 4 == 0) X++;

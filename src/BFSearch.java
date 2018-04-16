@@ -13,34 +13,36 @@ public class BFSearch extends Search {
         Queue<Node> queue = new LinkedList<Node>();
         queue.add(source);
 
-        Node source_goal = null;
+        Node destination = null;
 
         int num_created = 1, num_expanded = 0, fringe_size = 0;
 
         while (!queue.isEmpty()) {
 
             Node node = queue.poll();
+            //node.printSummary();
 
             if (check_repeats(node) == false) {
                 if (node.equals(goal)) {
-                    source_goal = node;
-                    output_summary(source_goal, num_created, num_expanded, fringe_size);
+                    destination = node;
+                    output_summary(destination, num_created, num_expanded, fringe_size);
                     return;
                 }
 
+                ArrayList<Node> successors = generate_successors(node);
+                queue.addAll(successors);
+
+//                for(Node n: successors) {
+//                    n.printSummary();
+//                }
+
+                num_created += successors.size();
                 num_expanded++;
-
-                ArrayList<Node> possibleMoves = possible_moves(node);
-
-                queue.addAll(possibleMoves);
-
-                num_created += possibleMoves.size();
-
                 fringe_size = Math.max(fringe_size, queue.size());
             }
         }
 
-        if (source_goal == null) print_summary(-1, -1, -1, -1);
+        if (destination == null) print_summary(-1, -1, -1, -1);
 
 
     }
