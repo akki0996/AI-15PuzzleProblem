@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Stack;
 
 public class DFSearch extends Search {
@@ -26,8 +28,16 @@ public class DFSearch extends Search {
                     return;
                 }
 
-
                 ArrayList<Node> successors = generate_successors(node);
+
+                ArrayList<Node> reverse_successors = new ArrayList<>();
+
+//                for (int i = successors.size() - 1; i >= 0; i--) {
+//                    stack.push(successors.get(i));
+//                }
+
+                Collections.reverse(successors);
+
                 stack.addAll(successors);
 
                 num_expanded++;

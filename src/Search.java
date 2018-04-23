@@ -22,7 +22,7 @@ public class Search {
         if (curr_y - 1 > -1) {
             Node leftMove = create_node(parent, curr_x, curr_y, curr_x, curr_y - 1);
             possibleMovements.add(leftMove);
-        }
+       }
 
         if (curr_x - 1 > -1) {
             Node upMove = create_node(parent, curr_x, curr_y,curr_x - 1, curr_y);
@@ -99,3 +99,42 @@ public class Search {
     }
 
 }
+
+
+//1234
+//        5678
+//        9AB
+//        DEFC
+//
+//        1234
+//        567
+//        9AB8
+//        DEFC
+//
+//
+//        1234567 9AB8DEFC
+//
+//        123456789ABCDEF
+//
+//        123456789AB DEFC
+//
+//        1234567 9AB8DEFC
+//
+//
+//        Can I move the space four units back? - Move Up
+//        only if the count > 0
+//
+//        Can I move the space four units further? Move Up
+//        only if the count <
+//        Can I move the space left? Move Left
+//        only if index != 3
+//        switch places with the left partner
+//
+//        Can I move the space right? Move right
+//        only if index != 0
+//        switch places with the right partner.
+//
+//
+//        11/4 = 3
+//
+//        Manhtaan Distance gonna be difficult
