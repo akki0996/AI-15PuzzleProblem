@@ -1,12 +1,17 @@
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Driver {
     public static void main(String[] args) {
         // Goal state initialization
-        String goal_state = "123456789ABCDEF  H";
-        Node goal = create_source_node(goal_state.split(" "));
-        goal.printSummary();
+        String goal_state_one = "123456789ABCDEF  H";
+        String goal_state_two = "123456789ABCDFE  H";
+
+        Node goal_node_one = create_source_node(goal_state_one.split(" "));
+        Node goal_node_two = create_source_node(goal_state_two.split(" "));
+
+
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Input the args: ");
@@ -15,28 +20,28 @@ public class Driver {
         input_str = input_str.replaceAll("[\"]", "");
 
         String[] arguments = input_str.split(" ");
-        Node source = create_source_node(arguments);
+        Node src_node = create_source_node(arguments);
+
 
         if(arguments[2].equals("BFS")) {
-            BFSearch bfs =  new BFSearch(source, goal);
+            BFSearch bfs =  new BFSearch(src_node, goal_node_one, goal_node_two);
         }
 
         if(arguments[2].equals("DFS")) {
-            DFSearch dfs =  new DFSearch(source, goal);
+            DFSearch dfs =  new DFSearch(src_node, goal_node_one, goal_node_two);
         }
 
         if(arguments[2].equals("GBFS")) {
-            GBFSearch gbfs =  new GBFSearch(source, goal, arguments[3]);
+            GBFSearch gbfs =  new GBFSearch(src_node, goal_node_one, arguments[3]);
         }
 
         if(arguments[2].equals("AStar")) {
-            AStarSearch astar =  new AStarSearch(source, goal, arguments[3]);
+            AStarSearch astar =  new AStarSearch(src_node, goal_node_one, arguments[3]);
         }
 
         if(arguments[2].equals("DLS")) {
-            DLSearch dls =  new DLSearch(source, goal, Integer.parseInt(arguments[3]));
+            DLSearch dls =  new DLSearch(src_node, goal_node_one, goal_node_two, Integer.parseInt(arguments[3]));
         }
-
     }
 
 

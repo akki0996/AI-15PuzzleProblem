@@ -10,7 +10,7 @@ public class Search {
         int curr_y = parent.empty_y;
 
         if (curr_y + 1 < 4) {
-            Node rightMove = create_node(parent, curr_x, curr_y, curr_x,  curr_y + 1);
+            Node rightMove = create_node(parent, curr_x, curr_y, curr_x, curr_y + 1);
             possibleMovements.add(rightMove);
         }
 
@@ -22,10 +22,10 @@ public class Search {
         if (curr_y - 1 > -1) {
             Node leftMove = create_node(parent, curr_x, curr_y, curr_x, curr_y - 1);
             possibleMovements.add(leftMove);
-       }
+        }
 
         if (curr_x - 1 > -1) {
-            Node upMove = create_node(parent, curr_x, curr_y,curr_x - 1, curr_y);
+            Node upMove = create_node(parent, curr_x, curr_y, curr_x - 1, curr_y);
             possibleMovements.add(upMove);
         }
 
@@ -33,24 +33,10 @@ public class Search {
     }
 
     public Node create_node(Node parent, int curr_x, int curr_y, int new_x, int new_y) {
-        Node node = new Node(parent, parent.puzzle_board, curr_x, curr_y,new_x, new_y);
+        Node node = new Node(parent, parent.puzzle_board, curr_x, curr_y, new_x, new_y);
         node.cost_source_current_state = parent.cost_source_current_state + 1;
         node.depth = parent.depth + 1;
         return node;
-    }
-
-    public boolean check_repeats(Node root) {
-        Node parent = root.parent;
-
-        if(root != null) {
-            while (parent != null) {
-                if (root.equals(parent))
-                    return true;
-                parent = parent.parent;
-            }
-        }
-
-        return false;
     }
 
     public void output_summary(Node goal, int num_created, int num_expanded, int max_fringe) {
@@ -58,7 +44,7 @@ public class Search {
         Node parent = goal.parent;
         int sol_depth = 0;
 
-        while(parent != null) {
+        while (parent != null) {
             sol_depth++;
             parent = parent.parent;
         }
@@ -77,10 +63,11 @@ public class Search {
 
     public HashMap<Character, int[]> board_conversion_map(Node goal_state) {
         char[][] board = goal_state.puzzle_board;
+
         HashMap<Character, int[]> hashMap = new HashMap<>();
 
-        for(int i = 0; i < board.length; i++) {
-            for(int j = 0; j < board[i].length; j++) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
                 hashMap.put(board[i][j], new int[]{i, j});
             }
         }
@@ -88,53 +75,20 @@ public class Search {
     }
 
     public void calc_cost(Node child, Node goal, String heuristic, String search, HashMap<Character, int[]> tile_value_map) {
-        if(heuristic.equals("h1"))
+        if (heuristic.equals("h1"))
             child.total_cost = Heuristic.misplaced_tiles(child, goal);
 
-        if(heuristic.equals("h2"))
+        if (heuristic.equals("h2"))
             child.total_cost = Heuristic.manhattan_Distance(child, goal, tile_value_map);
 
-        if(search.equals("AStar"))
+        if (search.equals("AStar"))
             child.total_cost += child.cost_source_current_state;
     }
 
+    public boolean hasCurrStateReachedGoalState(String curr_state, String goalStateOne, String goalStateTwo) {
+        if (curr_state.equals(goalStateOne)) return true;
+        if (curr_state.equals(goalStateTwo)) return true;
+        return false;
+    }
 }
 
-
-//1234
-//        5678
-//        9AB
-//        DEFC
-//
-//        1234
-//        567
-//        9AB8
-//        DEFC
-//
-//
-//        1234567 9AB8DEFC
-//
-//        123456789ABCDEF
-//
-//        123456789AB DEFC
-//
-//        1234567 9AB8DEFC
-//
-//
-//        Can I move the space four units back? - Move Up
-//        only if the count > 0
-//
-//        Can I move the space four units further? Move Up
-//        only if the count <
-//        Can I move the space left? Move Left
-//        only if index != 3
-//        switch places with the left partner
-//
-//        Can I move the space right? Move right
-//        only if index != 0
-//        switch places with the right partner.
-//
-//
-//        11/4 = 3
-//
-//        Manhtaan Distance gonna be difficult

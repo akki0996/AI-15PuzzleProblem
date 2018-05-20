@@ -1,52 +1,57 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class BFSearch extends Search {
 
-    public BFSearch(Node source, Node goal) {
-        search(source, goal);
+    public BFSearch(Node src_node, Node goal_node_one, Node goal_node_two) {
+        String goal_state_one = Arrays.deepToString(goal_node_one.puzzle_board);
+        String goal_state_two = Arrays.deepToString(goal_node_two.puzzle_board);
+        search(src_node, goal_state_one, goal_state_two);
     }
 
-    public void search(Node source, Node goal) {
+    public void search(Node src_node, String goal_state_one, String goal_state_two) {
 
-        Queue<Node> queue = new LinkedList<Node>();
-        queue.add(source);
+        Set<String> explored_states = new HashSet<>();
 
-        Node destination = null;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(src_node);
+
+        Node dest_node = null;
 
         int num_created = 1, num_expanded = 0, fringe_size = 0;
 
         while (!queue.isEmpty()) {
 
-            Node node = queue.poll();
-            //node.printSummary();
+            Node curr_node = queue.poll();
+            String curr_state = Arrays.deepToString(curr_node.puzzle_board);
 
-//            if (check_repeats(node) == false) {
-                if (node.equals(goal)) {
-                    destination = node;
-                    output_summary(destination, num_created, num_expanded, fringe_size);
-                    return;
+            if (!explored_states.contains(curr_state)) {
+
+                if (hasCurrStateReachedGoalState(curr_state, goal_state_one, goal_state_two)) {
+                    dest_node = curr_node;
+                    break;
                 }
 
-                ArrayList<Node> successors = generate_successors(node);
+                ArrayList<Node> successors = generate_successors(curr_node);
                 queue.addAll(successors);
 
                 num_created += successors.size();
                 num_expanded++;
                 fringe_size = Math.max(fringe_size, queue.size());
+
+                explored_states.add(curr_state);
             }
         }
 
-//        if (destination == null) print_summary(-1, -1, -1, -1);
-//
-
+        if (dest_node != null) {
+            output_summary(dest_node, num_created, num_expanded, fringe_size);
+        } else {
+            print_summary(-1, -1, -1, -1);
+        }
     }
-//}
-//
 
 
 /// " 12356749AB8DEFC" BFS
 
 
 // "51246A379 C8DEBF" BFS
+}
