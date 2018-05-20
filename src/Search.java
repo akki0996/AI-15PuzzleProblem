@@ -61,30 +61,46 @@ public class Search {
     }
 
 
-    public HashMap<Character, int[]> board_conversion_map(Node goal_state) {
-        char[][] board = goal_state.puzzle_board;
+    public HashMap<Character, int[]> board_conversion_map(Node goal_node) {
+
+        char[][] goal_state = goal_node.puzzle_board;
 
         HashMap<Character, int[]> hashMap = new HashMap<>();
 
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                hashMap.put(board[i][j], new int[]{i, j});
+        for (int i = 0; i < goal_state.length; i++) {
+            for (int j = 0; j < goal_state[i].length; j++) {
+                hashMap.put(goal_state[i][j], new int[]{i, j});
             }
         }
         return hashMap;
     }
 
-    public void calc_cost(Node child, Node goal, String heuristic, String search, HashMap<Character, int[]> tile_value_map) {
+    /**
+     *
+     * @param child_node child node of the curr_node
+     * @param goal_node goal_node of the current game
+     * @param heuristic heuristic to to calculated
+     * @param search type of search (AStar vs GBFS)
+     * @param tile_value_map contains the index of each value in the goal_state
+     */
+    public void calc_cost(Node child_node, Node goal_node, String heuristic, String search, HashMap<Character, int[]> tile_value_map) {
         if (heuristic.equals("h1"))
-            child.total_cost = Heuristic.misplaced_tiles(child, goal);
+            child_node.total_cost = Heuristic.misplaced_tiles(child_node, goal_node);
 
         if (heuristic.equals("h2"))
-            child.total_cost = Heuristic.manhattan_Distance(child, goal, tile_value_map);
+            child_node.total_cost = Heuristic.manhattan_Distance(child_node, goal_node, tile_value_map);
 
         if (search.equals("AStar"))
-            child.total_cost += child.cost_source_current_state;
+            child_node.total_cost += child_node.cost_source_current_state;
     }
 
+    /**
+     *
+     * @param curr_state curr_state of the game
+     * @param goalStateOne first goal_state of the game
+     * @param goalStateTwo second goal_state of the game
+     * @return if the curr_state has reached the goal_state
+     */
     public boolean hasCurrStateReachedGoalState(String curr_state, String goalStateOne, String goalStateTwo) {
         if (curr_state.equals(goalStateOne)) return true;
         if (curr_state.equals(goalStateTwo)) return true;

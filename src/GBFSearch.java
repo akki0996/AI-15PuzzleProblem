@@ -9,23 +9,23 @@ public class GBFSearch extends Search {
     public void search(Node src_node, Node goal_node, String heuristic) {
 
         HashMap<Character, int[]> tile_value_map = board_conversion_map(goal_node);
-        Set<String> explored_states = new HashSet<>();
+        Set<String> explored = new HashSet<>();
+
+        String goal_state = Arrays.deepToString(goal_node.puzzle_board);
+
+        PriorityQueue<Node> unexplored = new PriorityQueue<>(10, new PComparator());
+        unexplored.add(src_node);
 
         Node dest_node = null;
         int num_created = 1, num_expanded = 0, fringe_size = 0;
-        
-        String goal_state = Arrays.deepToString(goal_node.puzzle_board);
 
-        PriorityQueue<Node> unexplored_states = new PriorityQueue<>(10, new PComparator());
-        unexplored_states.add(src_node);
-
-        while (!unexplored_states.isEmpty()) {
+        while (!unexplored.isEmpty()) {
 
             // node with lowest cost
-            Node curr_node = unexplored_states.poll();
+            Node curr_node = unexplored.poll();
             String curr_state = Arrays.deepToString(curr_node.puzzle_board);
 
-            if (!explored_states.contains(curr_state)) {
+            if (!explored.contains(curr_state)) {
                 if (curr_state.equals(goal_state)) {
                     dest_node = curr_node;
                     break;
@@ -35,14 +35,14 @@ public class GBFSearch extends Search {
 
                 for (Node child : successors) {
                     calc_cost(child, goal_node, heuristic, "GBFS", tile_value_map);
-                    unexplored_states.add(child);
+                    unexplored.add(child);
                 }
 
                 num_created += successors.size();
                 num_expanded++;
-                fringe_size = Math.max(fringe_size, unexplored_states.size());
+                fringe_size = Math.max(fringe_size, unexplored.size());
 
-                explored_states.add(curr_state);
+                explored.add(curr_state);
             }
         }
 

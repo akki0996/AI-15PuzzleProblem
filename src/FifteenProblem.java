@@ -9,7 +9,6 @@ public class FifteenProblem {
         Node goal_node_two = create_node("123456789ABCDFE ");
 
         Node src_node = create_node(args[0]);
-        src_node.printSummary();
 
         if(args[1].equals("BFS")) {
             BFSearch bfs =  new BFSearch(src_node, goal_node_one, goal_node_two);

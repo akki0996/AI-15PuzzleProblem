@@ -12,19 +12,19 @@ public class AStarSearch extends Search {
         String goal_state = Arrays.deepToString(goal_node.puzzle_board);
 
         Set<String> explored_states = new HashSet<>();
+
         PriorityQueue<Node> unexplored = new PriorityQueue<>(10, new PComparator());
         unexplored.add(src_node);
 
         Node dest_node = null;
-        HashMap<Character, int[]> tile_value_map = board_conversion_map(goal_node);
-
         int num_created = 1, num_expanded = 0, fringe_size = 0;
+
+        HashMap<Character, int[]> tile_value_map = board_conversion_map(goal_node);
 
         while (!unexplored.isEmpty()) {
 
             Node curr_node = unexplored.poll();
             String curr_state = Arrays.deepToString(curr_node.puzzle_board);
-
 
             if (!explored_states.contains(curr_state)) {
                 if (curr_state.equals(goal_state)) {

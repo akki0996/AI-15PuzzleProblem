@@ -1,17 +1,28 @@
 import java.util.HashMap;
 
+/**
+ * This class helps in calculating the h1 and h2 heuristics mentioned in Russell & Norvig
+ */
+
+
 public class Heuristic {
 
-    public static int misplaced_tiles(Node curr_state, Node goal_state) {
-        char[][] board1 = curr_state.puzzle_board;
-        char[][] board2 = goal_state.puzzle_board;
+    /**
+     * This method calculates the heuristic of misplaced tiles.
+     * @param curr_node the current node
+     * @param goal_node the goal node
+     * @return total number of misplaced tiles.
+     */
+    public static int misplaced_tiles(Node curr_node, Node goal_node) {
+        char[][] curr_state = curr_node.puzzle_board;
+        char[][] goal_state = goal_node.puzzle_board;
 
         int misplaced_tiles = 0;
 
-        for(int i = 0; i < board1.length; i++) {
-            for(int j = 0; j < board1[i].length; j++) {
-                if(board1[i][j] != ' ') {
-                    if (board1[i][j] != (board2[i][j])) {
+        for(int i = 0; i < curr_state.length; i++) {
+            for(int j = 0; j < curr_state[i].length; j++) {
+                if(curr_state[i][j] != ' ') {
+                    if (curr_state[i][j] != (goal_state[i][j])) {
                         misplaced_tiles++;
                     }
                 } else {
@@ -19,23 +30,29 @@ public class Heuristic {
                 }
             }
         }
-
         return misplaced_tiles;
     }
 
 
-    public static int manhattan_Distance(Node curr_state, Node goal_state, HashMap<Character, int[]> hashMap) {
+    /**
+     *
+     * @param curr_node the current node
+     * @param goal_node the goal node
+     * @param hashMap contains the position of the goal state characters in a hashmap
+     * @return the manhattan distance while curr_state to goal_state
+     */
+    public static int manhattan_Distance(Node curr_node, Node goal_node, HashMap<Character, int[]> hashMap) {
 
-        char[][] board1 = curr_state.puzzle_board;
-        char[][] board2 = goal_state.puzzle_board;
+        char[][] curr_state = curr_node.puzzle_board;
+        char[][] goal_state = goal_node.puzzle_board;
 
         int manhattan_dist = 0;
 
-        for(int i = 0; i < board1.length; i++) {
-            for(int j = 0; j < board1[i].length; j++) {
-                if(board1[i][j] != ' ') {
-                    if(board1[i][j] != (board2[i][j])) {
-                        int[] positions = hashMap.get(board1[i][j]);
+        for(int i = 0; i < curr_state.length; i++) {
+            for(int j = 0; j < curr_state[i].length; j++) {
+                if(curr_state[i][j] != ' ') {
+                    if(curr_state[i][j] != (goal_state[i][j])) {
+                        int[] positions = hashMap.get(curr_state[i][j]);
                         manhattan_dist += Math.abs(i - positions[0]) + Math.abs(j - positions[1]);
                     }
                 } else {
