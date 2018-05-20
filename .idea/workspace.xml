@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e27a0561-b73e-44fb-8068-562a53a0ee0e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/FifteenProblem.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/AStarSearch.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/AStarSearch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/BFSearch.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/BFSearch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/DFSearch.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/DFSearch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/DLSearch.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/DLSearch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/Driver.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/Driver.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/GBFSearch.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/GBFSearch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/Search.class" afterPath="$PROJECT_DIR$/out/production/Assignment1/Search.class" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/FifteenProblem.class" afterPath="$PROJECT_DIR$/src/FifteenProblem.class" />
+      <change beforePath="$PROJECT_DIR$/src/GBFSearch.java" afterPath="$PROJECT_DIR$/src/GBFSearch.java" />
+      <change beforePath="$PROJECT_DIR$/src/Heuristic.java" afterPath="$PROJECT_DIR$/src/Heuristic.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,14 +22,49 @@
     <splitter split-orientation="horizontal" split-proportion="0.51052314">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file leaf-file-name="FifteenProblem.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="FifteenProblem.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/FifteenProblem.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="784">
+                <state relative-caret-position="-1175">
                   <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GBFSearch.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/GBFSearch.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-747">
+                  <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#132#133#0" expanded="true" />
+                    <element signature="e#186#187#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Search.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Search.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1674">
+                  <caret line="41" column="16" lean-forward="false" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Heuristic.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Heuristic.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="731">
+                  <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -65,6 +94,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Hey</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -80,16 +114,16 @@
         <option value="$PROJECT_DIR$/src/BFS.java" />
         <option value="$PROJECT_DIR$/src/PComparator.java" />
         <option value="$PROJECT_DIR$/src/heuristic/Heuristic.java" />
-        <option value="$PROJECT_DIR$/src/Heuristic.java" />
         <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/DFSearch.java" />
         <option value="$PROJECT_DIR$/src/DLSearch.java" />
         <option value="$PROJECT_DIR$/src/BFSearch.java" />
         <option value="$PROJECT_DIR$/src/Search.java" />
         <option value="$PROJECT_DIR$/src/AStarSearch.java" />
-        <option value="$PROJECT_DIR$/src/GBFSearch.java" />
         <option value="$PROJECT_DIR$/src/Driver.java" />
         <option value="$PROJECT_DIR$/src/FifteenProblem.java" />
+        <option value="$PROJECT_DIR$/src/Heuristic.java" />
+        <option value="$PROJECT_DIR$/src/GBFSearch.java" />
       </list>
     </option>
   </component>
@@ -336,12 +370,12 @@
       <workItem from="1524526865474" duration="731000" />
       <workItem from="1524771631374" duration="146000" />
       <workItem from="1526782809172" duration="5237000" />
-      <workItem from="1526798105792" duration="7283000" />
+      <workItem from="1526798105792" duration="7786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100189000" />
+    <option name="totallyTimeSpent" value="100692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -398,14 +432,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/BFSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DLSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
@@ -785,14 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Heuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DFSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1068">
@@ -806,16 +824,6 @@
         <state relative-caret-position="1059">
           <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1130">
-          <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,23 +843,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GBFSearch.java">
+    <entry file="file://$PROJECT_DIR$/src/GBFSearch.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1333">
-          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding>
-            <element signature="e#132#133#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FifteenProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
+        <state relative-caret-position="-1175">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1674">
+          <caret line="41" column="16" lean-forward="false" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Heuristic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GBFSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-747">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="e#132#133#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
           </folding>
         </state>
       </provider>

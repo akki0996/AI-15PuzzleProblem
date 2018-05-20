@@ -13,8 +13,7 @@ public class GBFSearch extends Search {
 
         Node dest_node = null;
         int num_created = 1, num_expanded = 0, fringe_size = 0;
-
-
+        
         String goal_state = Arrays.deepToString(goal_node.puzzle_board);
 
         PriorityQueue<Node> unexplored_states = new PriorityQueue<>(10, new PComparator());

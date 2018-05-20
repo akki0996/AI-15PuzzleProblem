@@ -15,7 +15,7 @@ public class Heuristic {
                         misplaced_tiles++;
                     }
                 } else {
-                    System.out.println("Hey what's up hello");
+                    continue;
                 }
             }
         }
@@ -39,7 +39,7 @@ public class Heuristic {
                         manhattan_dist += Math.abs(i - positions[0]) + Math.abs(j - positions[1]);
                     }
                 } else {
-                    System.out.println("Hey what's up hello");
+                    continue;
                 }
 
             }
