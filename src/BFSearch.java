@@ -49,7 +49,16 @@ public class BFSearch extends Search {
         }
     }
 
-
+//public String convertArrayToString(char[][] board) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for(int i = 0; i < 4; i++) {
+//            for(int j = 0; j < 4; j++) {
+//                stringBuilder.append(board[i][j]);
+//            }
+//        }
+//
+//        return stringBuilder.toString();
+//}
 /// " 12356749AB8DEFC" BFS
 
 

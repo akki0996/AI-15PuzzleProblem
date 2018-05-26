@@ -1,5 +1,8 @@
 import java.util.Comparator;
 
+/**
+ * This class helps priority queue in deciding the priority for states
+ */
 public class PComparator implements Comparator<Node> {
 
     @Override

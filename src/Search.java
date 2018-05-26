@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class is the parent of all search classes.
+ */
 public class Search {
 
     public ArrayList<Node> generate_successors(Node parent) {
@@ -39,6 +42,13 @@ public class Search {
         return node;
     }
 
+    /**
+     * This method prints the summary after the search has found the solution.
+     * @param goal parent of the current node
+     * @param num_created number of nodes that were created
+     * @param num_expanded number of nodes that were explored
+     * @param max_fringe maximum size of the queue at one time.
+     */
     public void output_summary(Node goal, int num_created, int num_expanded, int max_fringe) {
 
         Node parent = goal.parent;
@@ -64,7 +74,6 @@ public class Search {
     public HashMap<Character, int[]> board_conversion_map(Node goal_node) {
 
         char[][] goal_state = goal_node.puzzle_board;
-
         HashMap<Character, int[]> hashMap = new HashMap<>();
 
         for (int i = 0; i < goal_state.length; i++) {
@@ -76,11 +85,10 @@ public class Search {
     }
 
     /**
-     *
-     * @param child_node child node of the curr_node
-     * @param goal_node goal_node of the current game
-     * @param heuristic heuristic to to calculated
-     * @param search type of search (AStar vs GBFS)
+     * @param child_node     child node of the curr_node
+     * @param goal_node      goal_node of the current game
+     * @param heuristic      heuristic to to calculated
+     * @param search         type of search (AStar vs GBFS)
      * @param tile_value_map contains the index of each value in the goal_state
      */
     public void calc_cost(Node child_node, Node goal_node, String heuristic, String search, HashMap<Character, int[]> tile_value_map) {
@@ -95,8 +103,7 @@ public class Search {
     }
 
     /**
-     *
-     * @param curr_state curr_state of the game
+     * @param curr_state   curr_state of the game
      * @param goalStateOne first goal_state of the game
      * @param goalStateTwo second goal_state of the game
      * @return if the curr_state has reached the goal_state

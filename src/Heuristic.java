@@ -3,8 +3,6 @@ import java.util.HashMap;
 /**
  * This class helps in calculating the h1 and h2 heuristics mentioned in Russell & Norvig
  */
-
-
 public class Heuristic {
 
     /**
@@ -33,7 +31,6 @@ public class Heuristic {
         return misplaced_tiles;
     }
 
-
     /**
      *
      * @param curr_node the current node
@@ -58,7 +55,6 @@ public class Heuristic {
                 } else {
                     continue;
                 }
-
             }
         }
         return manhattan_dist;

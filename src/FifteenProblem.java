@@ -1,7 +1,3 @@
-
-import java.util.*;
-import java.util.stream.Collectors;
-
 public class FifteenProblem {
     public static void main(String[] args) {
 
@@ -27,7 +23,7 @@ public class FifteenProblem {
         }
 
         if(args[1].equals("DLS")) {
-            DLSearch dls =  new DLSearch(src_node, goal_node_one, goal_node_two, Integer.parseInt(args[1]));
+            DLSearch dls =  new DLSearch(src_node, goal_node_one, goal_node_two, Integer.parseInt(args[2]));
         }
     }
 
